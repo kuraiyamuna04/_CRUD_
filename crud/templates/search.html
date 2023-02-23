@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Blog</title>
+</head>
+<style>
+    body{
+        background-color: rgb(177, 103, 247);
+    }
+    table,
+    th,
+    td 
+    {
+        border: 2px solid;
+        padding: 10px;
+        width: 70%;
+        background-color: rgb(240, 65, 240);
+    }
+    button{
+        background-color: black;
+        color: white;
+        align-self: center;
+        padding: 20px;
+        font-size: larger;
+
+    }
+</style>
+
+<body>
+    <h2 style="text-align:center"> Blog Informationn </h2>
+    <table align="center" style="margin: 0px auto;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Edit</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for blog in blogs %}
+            <tr>
+                <td>{{blog.Name}}</td>
+                <td>{{blog.Email}}</td>
+                <td>{{blog.Address}}</td>
+                <td>{{blog.Phone}}</td>
+                <td>
+                    <a href="/update/{{blog.pk}}">Update</a>    
+                </td>
+                <td>
+                    <a href="/delete/{{blog.pk}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
